@@ -1,6 +1,5 @@
 package net.konohana.sakuya.sample.controller
 
-import javax.validation.Valid
 import net.konohana.sakuya.sample.form.UserRegistrationForm
 import net.konohana.sakuya.sample.service.UserRegistrationService
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,7 +26,7 @@ class AccountController {
     }
 
     @PostMapping("/user/registration")
-    fun userRegistration(@ModelAttribute("form") form: @Valid UserRegistrationForm, result: BindingResult): String {
+    fun userRegistration(@Validated @ModelAttribute("form") form: UserRegistrationForm, result: BindingResult): String {
         if (result.hasErrors()) {
             return "user-registration"
         }
