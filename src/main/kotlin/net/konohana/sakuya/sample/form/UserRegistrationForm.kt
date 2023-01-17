@@ -19,8 +19,8 @@ data class UserRegistrationForm(
     @field:Size(min = 8, max = 20)
     val confirmPassword: String? = null,
 ) {
-    val isPasswordValid: @AssertTrue Boolean
-        get() = if (password == null || confirmPassword == null) {
-            false
-        } else password == confirmPassword
+    @AssertTrue
+    fun isPasswordValid(): Boolean {
+        return if (password == null || confirmPassword == null) return false else password == confirmPassword
+    }
 }
