@@ -30,6 +30,9 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+    // libphonenumber
+	implementation("com.googlecode.libphonenumber:libphonenumber:8.13.4")
+
 }
 
 tasks.withType<KotlinCompile> {

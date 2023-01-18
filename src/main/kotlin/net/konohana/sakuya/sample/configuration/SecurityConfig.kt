@@ -30,6 +30,7 @@ class SecurityConfig {
                 authz
                     .mvcMatchers("/css/**").permitAll()
                     .mvcMatchers("/user/registration").permitAll()
+                    .mvcMatchers("/api/convert/**").permitAll()
                     .anyRequest().authenticated()
             }
         )

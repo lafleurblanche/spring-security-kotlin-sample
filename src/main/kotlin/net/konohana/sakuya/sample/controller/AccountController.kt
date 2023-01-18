@@ -13,11 +13,18 @@ import org.springframework.web.bind.annotation.PostMapping
 @Controller
 @Validated
 class AccountController {
+
     @Autowired
     lateinit var userRegistrationService: UserRegistrationService
+
     @GetMapping("/")
     fun showTop(): String {
         return "index"
+    }
+
+    @GetMapping("/login")
+    fun showLoginPage(): String {
+        return "login"
     }
 
     @GetMapping("/user/registration")
@@ -26,7 +33,10 @@ class AccountController {
     }
 
     @PostMapping("/user/registration")
-    fun userRegistration(@Validated @ModelAttribute("form") form: UserRegistrationForm, result: BindingResult): String {
+    fun userRegistration(
+        @Validated @ModelAttribute("form") form: UserRegistrationForm,
+        result: BindingResult
+    ): String {
         if (result.hasErrors()) {
             return "user-registration"
         }
