@@ -11,8 +11,11 @@ class PhoneNumberController {
     @GetMapping("/api/convert/{number}")
     fun convertPhoneNumber(@PathVariable number: String): String {
         val phoneNumberUtil = PhoneNumberUtil.getInstance()
-        return kotlin.runCatching {
-            phoneNumberUtil.format( phoneNumberUtil.parse(number, "JP"), PhoneNumberUtil.PhoneNumberFormat.NATIONAL)
+        return runCatching {
+            phoneNumberUtil.format(
+                phoneNumberUtil.parse(number, "JP"),
+                PhoneNumberUtil.PhoneNumberFormat.NATIONAL
+            )
         }.getOrElse {
             return "変換エラー！！"
         }
