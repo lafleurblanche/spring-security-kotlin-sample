@@ -5,6 +5,9 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 import org.springframework.validation.annotation.Validated
 
+/**
+ * Form
+ */
 @Validated
 data class UserRegistrationForm(
     @field:NotBlank
